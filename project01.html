@@ -11,26 +11,73 @@
     src="https://aframe.io/releases/0.6.0/aframe.min.js">
     </script>    
 
+
 </head>
 
-<script>
-    var col
-	col = '#4250f4'
 
-
-// #f44141
-</script>
-	
 <body>
-	<a-scene>
-		<a-sphere position="0 0 -5">
-			</a-sphere>
-			
-			
-		<a-sky color=col></a-sky>
-	</a-scene>
+    
+    <a-scene>
+            
+        <a-sky color="#00f1fe">
+            
+        </a-sky> 
+        
+        <a-camera>
+                <a-cursor></a-cursor>
+        </a-camera>
+    
+    </a-scene>
+ 
+    
+<script>
+    
+            d3.csv('database.csv', data => {
+                
+            console.log(data)
+            
+                var scenes = d3.select('a-scene')
+                    .selectAll('.entity')
+                    .data(data)
+                    .enter()
+                    .append('a-entity')
+                    .classed('entity', true)
+
+                    .attr('rotation', (d, i) => {
+                        return '0 ' + (i*360/data.length) + ' 0'
+                    })
+
+                scenes.append('a-plane')
+                    .attr('width', 1)
+                    .attr('material', "side: double")
+                    .attr('height', 😎
+                    .attr('color', '#fff')
+                    .attr('position', '0 0 -20')
+                    .attr('rotation', '0 0 0')
+                
+                scenes.append('a-sphere')
+                    .attr('radius', d => d.pm10/10)
+                    .attr('color', '#0f0')
+                    .attr('position', '0 0 -15')
+               
+                var colors = d3.scaleLinear()
+                                .domain([0, 25])
+                                .range(['blue', 'red'])
+
+                scenes.on('mouseenter', function(d, i){
+                    console.log(d, colors(i))
+                    d3.select('a-sky')
+                        .attr('color', colors(d.temperature))
+                })    
+            
+            })
+    
+   //       <a-entity
+     //   geometry="primitive: plane; width: 10000; height: 10000;" rotation="-90 0 0"
+    //    material="src: #grid; repeat: 10000 10000; transparent: true;metalness:0.6; roughness: 0.4; sphericalEnvMap: #sky;"></a-entity>
 
 
+</script>
     
     
 </body>
