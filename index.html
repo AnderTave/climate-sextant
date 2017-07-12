@@ -20,6 +20,8 @@
 
 
 <body>
+    <!-- caricamento traccia audio -->
+    <audio id='audio1' src="rain02.mp3" autoplay loop></audio>
     
     <a-scene>
             
@@ -27,7 +29,7 @@
             
         </a-sky> 
                 
-        <a-entity position="0 2.25 -15" particle-system="preset: rain" rotation scale visable></a-entity>
+    <!--    <a-entity position="0 2.25 -15" particle-system="preset: rain" rotation scale visable></a-entity>  -->
         
         <a-camera>
                 <a-cursor></a-cursor>
@@ -37,9 +39,9 @@
  
     
 <script>
-    
+            // caricamento database //
             d3.csv('database.csv', data => {
-                
+            // mostrare dati in console //   
             console.log(data)
             
                 var scenes = d3.select('a-scene')
@@ -53,6 +55,7 @@
                         return '0 ' + (i*360/data.length) + ' 0'
                     })
 
+                // funzione per creare piani //
                 scenes.append('a-plane')
                     .attr('width', 1)
                     .attr('material', "side: double")
@@ -61,20 +64,30 @@
                     .attr('position', '0 0 -20')
                     .attr('rotation', '0 0 0')
                 
+                // funzione per mappare pm10 su sfera //
                 scenes.append('a-sphere')
                     .attr('radius', d => d.pm10/10)
                     .attr('color', '#0f0')
                     .attr('position', '0 0 -15')
                
+                // scala lineare colori //
                 var colors = d3.scaleLinear()
                                 .domain([0, 25])
                                 .range(['blue', 'red'])
+                
+                // audio normalizzato da o a 1, zero volume minime uno volume massimo //
+                var audio = d3.scaleLinear()
+                                .domain([0, 300])
+                                .range([0, 1])
 
+                // funzione per mappare il dato su colori e audio, piu selezionatore //
                 scenes.on('mouseenter', function(d, i){
                     console.log(d, colors(i))
                     d3.select('a-sky')
                         .attr('color', colors(d.temperature))
-                })    
+                    
+                    d3.select('#audio1').node().volume = audio(d.rain)
+                })
             
             })
     
@@ -82,8 +95,6 @@
      //   geometry="primitive: plane; width: 10000; height: 10000;" rotation="-90 0 0"
     //    material="src: #grid; repeat: 10000 10000; transparent: true;metalness:0.6; roughness: 0.4; sphericalEnvMap: #sky;"></a-entity>
     
-   // <a-entity position="0 2.25 -15" particle-system="preset: rain"></a-entity>
-
 
 </script>
     
