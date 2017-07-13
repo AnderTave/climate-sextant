@@ -24,11 +24,15 @@
     <audio id='audio1' src="rain02.mp3" autoplay loop></audio>
     
     <a-scene>
-            
-        <a-sky color="#00f1fe">
-            
+		<a-sky color="#00f1fe">
         </a-sky> 
-                
+        
+	<!--<a-plane src="Aztec_calendar.png" position="0 -1.5 0" rotation="-90 0 0" width="5" height="5" ></a-plane>	-->
+	
+	<a-cylinder  src="Aztec_calendar.png" position="0 -1.9 0" height="1" radius="3"></a-cylinder>
+	<a-cylinder  color="green"  position="0 -2 0" height="1" radius="18" fog="true"></a-cylinder>	
+	
+		
     <!--    <a-entity position="0 2.25 -15" particle-system="preset: rain" rotation scale visable></a-entity>  -->
         
         <a-camera>
@@ -67,7 +71,7 @@
                 // funzione per mappare pm10 su sfera //
                 scenes.append('a-sphere')
                     .attr('radius', d => d.pm10/10)
-                    .attr('color', '#0f0')
+                    .attr('color', '#a3a3a3')
                     .attr('position', '0 0 -15')
                
                 // scala lineare colori //
