@@ -29,10 +29,13 @@
         <a-assets>
         
         <!-- caricamento traccia audio -->
-        <audio id='audio1' src="rain02.mp3" autoplay loop></audio> 
+        <audio id='audio1' src="assets/rain02.mp3" autoplay loop></audio> 
     
-        <audio id='audio2' src="noise01.mp3" autoplay loop></audio>
+        <audio id='audio2' src="assets/noise01.mp3" autoplay loop></audio>
    
+		<img id="calendar" src="assets/calendar.png">	
+		<img id="top" src="assets/top.png">	
+	
     </a-assets>   
     
     <a-scene>
@@ -46,9 +49,12 @@
         material="shader: gradient; topColor: 255 0 0; bottomColor: 0 121 255;">
         </a-gradient-sky>
 	
-	<a-cylinder  src="Aztec_calendar.png" position="0 -1.9 0" height="1" radius="3"></a-cylinder>
-	<a-cylinder  color="green"  position="0 -2 0" height="1" radius="18" fog="true"></a-cylinder>	
-	
+		<a-cylinder  src="#calendar" position="0 -2.9 0" height="1" radius="3"></a-cylinder>
+		
+		<a-cylinder  color="green"  position="0 -3 0" height="1" radius="18" fog="true"></a-cylinder>	
+		
+		<a-cylinder  src="#top" position="0 6 0" height="1" radius="3"></a-cylinder>
+		
 		
     <!--    <a-entity position="0 2.25 -15" particle-system="preset: rain" rotation scale visable></a-entity>  -->
         
@@ -61,7 +67,7 @@
     
 <script>
             // caricamento database //
-            d3.csv('database.csv', data => {
+            d3.csv('database/database.csv', data => {
             // mostrare dati in console //   
             console.log(data)
             
