@@ -141,7 +141,8 @@
     
     
     d3.select('body').on('click', function(){
-        d3.select('#audio1').node().play()
+     d3.select('#audio1').node().volume = mapRain(d.rain)
+     d3.select('#audio2').node().volume = mapPm(d.pm10)
     })
 
 </script>
