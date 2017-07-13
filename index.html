@@ -44,8 +44,8 @@
         <!-- caricamento traccia audio -->
         
          
-		<img id="calendar" src="assets/calendar.png">	
-		<img id="top" src="assets/top.png">	
+<!--            <img id="calendar" src="assets/calendar.png">	-->
+            <img id="top" src="assets/top.png">	
 	
     </a-assets>  
         <a-sky color="#00f1fe">
@@ -57,9 +57,9 @@
         </a-gradient-sky>
 -->
 	
-		<a-cylinder  src="#calendar" position="0 -2.9 0" height="1" radius="3"></a-cylinder>
+<!--        <a-cylinder  src="#calendar" position="0 -2.9 0" height="1" radius="3"></a-cylinder>-->
 		
-		<a-cylinder  color="green"  position="0 -3 0" height="1" radius="18" fog="true"></a-cylinder>	
+<!--		<a-cylinder  color="green"  position="0 -3 0" height="1" radius="18" fog="true"></a-cylinder>-->
 		
 		<a-cylinder  src="#top" position="0 6 0" height="1" radius="3"></a-cylinder>
 		
@@ -149,7 +149,7 @@
 
                     d3.select('a-sky')
                         .attr('animation', () => {
-                            return 'property: material.color; dur: 1000; easing: easeInOutCirc; to: ' + mapCol(d.pm10)
+                            return 'property: material.color; dur: 500; easing: easeInOutCirc; to: ' + mapCol(d.pm10)
                         })
                           
                     d3.select('#audio1').node().volume = mapRain(d.rain)
