@@ -14,20 +14,37 @@
     <script 
     src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js">
     </script>
+    
+    <script 
+    src="https://unpkg.com/aframe-animation-component/dist/aframe-animation-component.min.js">
+    </script>
+    
+    <script src="https://cdn.rawgit.com/zcanter/aframe-gradient-sky/master/dist/gradientsky.min.js"></script>
 
 
-</head>
-
+</head> 
 
 <body>
-    <!-- caricamento traccia audio -->
-    <audio id='audio1' src="rain02.mp3" autoplay loop></audio>
+    
+        <a-assets>
+        
+        <!-- caricamento traccia audio -->
+        <audio id='audio1' src="rain02.mp3" autoplay loop></audio> 
+    
+        <audio id='audio2' src="noise01.mp3" autoplay loop></audio>
+   
+    </a-assets>   
     
     <a-scene>
-		<a-sky color="#00f1fe">
-        </a-sky> 
+<!--
+        <a-sky 
+                color="#00f1fe">
+        </a-sky>
+-->
         
-	<!--<a-plane src="Aztec_calendar.png" position="0 -1.5 0" rotation="-90 0 0" width="5" height="5" ></a-plane>	-->
+        <a-gradient-sky 
+        material="shader: gradient; topColor: 255 0 0; bottomColor: 0 121 255;">
+        </a-gradient-sky>
 	
 	<a-cylinder  src="Aztec_calendar.png" position="0 -1.9 0" height="1" radius="3"></a-cylinder>
 	<a-cylinder  color="green"  position="0 -2 0" height="1" radius="18" fog="true"></a-cylinder>	
@@ -61,36 +78,53 @@
 
                 // funzione per creare piani //
                 scenes.append('a-plane')
-                    .attr('width', 1)
+                    .attr('width', 8)
                     .attr('material', "side: double")
                     .attr('height', 8)
-                    .attr('color', '#fff')
+                    .attr('color', '0 0 0')
+                    .attr('opacity', '0')
                     .attr('position', '0 0 -20')
                     .attr('rotation', '0 0 0')
                 
                 // funzione per mappare pm10 su sfera //
-                scenes.append('a-sphere')
-                    .attr('radius', d => d.pm10/10)
-                    .attr('color', '#a3a3a3')
-                    .attr('position', '0 0 -15')
-               
+//                scenes.append('a-sphere')
+//                    .attr('radius', d => d.pm10/10)
+//                    .attr('color', '#a3a3a3')
+//                    .attr('position', '0 0 -15')
+//               
+                
                 // scala lineare colori //
                 var colors = d3.scaleLinear()
                                 .domain([0, 25])
-                                .range(['blue', 'red'])
+                                .range([255, 150])
+                
+                var colors2 = d3.scaleLinear()
+                                .domain([0, 25])
+                                .range([255, 50])
                 
                 // audio normalizzato da o a 1, zero volume minime uno volume massimo //
                 var audio = d3.scaleLinear()
                                 .domain([0, 300])
                                 .range([0, 1])
 
+                // audio PM10 normalizzato da o a 1, zero volume minimo uno volume massimo //
+                var mapPm = d3.scaleLinear()
+                                .domain([9, 30])
+                                .range([0, 1])                
+                
+
                 // funzione per mappare il dato su colori e audio, piu selezionatore //
                 scenes.on('mouseenter', function(d, i){
-                    console.log(d, colors(i))
-                    d3.select('a-sky')
-                        .attr('color', colors(d.temperature))
+                    d3.select('a-gradient-sky')
+//                        .attr('color', colors(d.temperature))
+//                        .attr('material', "opacity:" + opacity(d.pm10))
+                    .attr('material', "shader: gradient; topColor:150 150 "+colors(d.pm10)+"; bottomColor: 50 50 "+colors2(d.pm10)+";")
+                          
                     
-                    d3.select('#audio1').node().volume = audio(d.rain)
+                    d3.select('#audio1').node().volume = mapRain(d.rain)
+                    
+                    d3.select('#audio2').node().volume = mapPm(d.pm10)
+                    
                 })
             
             })
@@ -101,7 +135,7 @@
     
     
     d3.select('body').on('click', function(){
-        d3.select('#audio1').node().play()
+//        d3.select('#audio1').node().play()
     })
 
 </script>
