@@ -131,7 +131,7 @@
                 
                 var mapCol = d3.scaleLinear()
                                 .domain([9, 27])
-                                .range(['#00b6ff', '#555d60'])
+                                .range(['#00ddff', '#555d60'])
                 
 
                 // funzione per mappare il dato su colori e audio, piu selezionatore //
@@ -149,7 +149,7 @@
 
                     d3.select('a-sky')
                         .attr('animation', () => {
-                            return 'property: material.color; dur: 1000; easing: easeInOutExpo; to: ' + mapCol(d.pm10)
+                            return 'property: material.color; dur: 1000; easing: easeInOutCirc; to: ' + mapCol(d.pm10)
                         })
                           
                     d3.select('#audio1').node().volume = mapRain(d.rain)
