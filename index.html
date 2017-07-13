@@ -26,19 +26,26 @@
 
 <body>
     
-        <a-assets>
+
+    <a-scene>
+        
+                <a-assets>
         
         <!-- caricamento traccia audio -->
         <audio id='audio1' src="assets/rain02.mp3" autoplay loop></audio> 
     
-        <audio id='audio2' src="assets/noise01.mp3" autoplay loop></audio>
+<!--    <audio id='audio2' src="assets/noise01.mp3" autoplay loop></audio> -->
    
+        <audio class="aux" id='winter' src="assets/winter.mp3"  loop></audio> 
+        <audio class="aux" id='spring' src="assets/spring.mp3"  loop></audio>
+        <audio class="aux" id='summer' src="assets/summer.mp3"  loop></audio>
+        <audio class="aux" id='fall' src="assets/fall.mp3"  loop></audio> 
+        <audio class="aux" id='bip' src="assets/bip.mp3"></audio> 
+         
 		<img id="calendar" src="assets/calendar.png">	
 		<img id="top" src="assets/top.png">	
 	
-    </a-assets>   
-    
-    <a-scene>
+    </a-assets>  
 <!--
         <a-sky 
                 color="#00f1fe">
@@ -70,6 +77,8 @@
             d3.csv('database/database.csv', data => {
             // mostrare dati in console //   
             console.log(data)
+                
+                d3.select('.aux').node().pause()
             
                 var scenes = d3.select('a-scene')
                     .selectAll('.entity')
@@ -97,8 +106,7 @@
 //                    .attr('radius', d => d.pm10/10)
 //                    .attr('color', '#a3a3a3')
 //                    .attr('position', '0 0 -15')
-//               
-                
+//                              
                 // scala lineare colori //
                 var colors = d3.scaleLinear()
                                 .domain([0, 25])
@@ -114,8 +122,8 @@
                                 .range([0, 1])
 
                 // audio PM10 normalizzato da o a 1, zero volume minimo uno volume massimo //
-                var mapPm = d3.scaleLinear()
-                                .domain([9, 30])
+                var mapTemp = d3.scaleLinear()
+                                .domain([2, 30])
                                 .range([0, 1])                
                 
 
@@ -126,10 +134,15 @@
 //                        .attr('material', "opacity:" + opacity(d.pm10))
                     .attr('material', "shader: gradient; topColor:150 150 "+colors(d.pm10)+"; bottomColor: 50 50 "+colors2(d.pm10)+";")
                           
-                    
                     d3.select('#audio1').node().volume = mapRain(d.rain)
                     
-                    d3.select('#audio2').node().volume = mapPm(d.pm10)
+//                      d3.select('#audio2').node().volume = mapPm(d.pm10)
+                    
+                    d3.select('.aux').node().pause()
+                    d3.select('#' + d.season).node().play()
+                    d3.select('#' + d.season).node().volume = mapTemp(d.temperature)
+                    d3.select('#bip').node().play()
+
                     
                 })
             
@@ -140,9 +153,9 @@
     //    material="src: #grid; repeat: 10000 10000; transparent: true;metalness:0.6; roughness: 0.4; sphericalEnvMap: #sky;"></a-entity>
     
     
-    d3.select('body').on('click', function(){
-        d3.select('#audio1').node().play()
-    })
+//    d3.select('body').on('click', function(){
+//        d3.select('#audio1').node().play()
+//    })
 
 </script>
     
