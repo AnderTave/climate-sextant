@@ -79,7 +79,9 @@
             // mostrare dati in console //   
             console.log(data)
                 
-                d3.select('.aux').node().pause()
+                d3.selectAll('.aux').each(function(){
+                    d3.select(this).node().volume = 0
+                })
             
                 var scenes = d3.select('a-scene')
                     .selectAll('.entity')
@@ -128,7 +130,7 @@
                                 .range([0, 1])  
                 
                 var mapCol = d3.scaleLinear()
-                                .domain([0, 25])
+                                .domain([9, 27])
                                 .range(['#00b6ff', '#555d60'])
                 
 
@@ -154,9 +156,11 @@
                     
 //                      d3.select('#audio2').node().volume = mapPm(d.pm10)
                     
-                    d3.selectAll('.aux').node().pause()
-                    d3.select('#' + d.season).node().play()
-                    //d3.select('#' + d.season).node().volume = mapTemp(d.temperature)
+                    d3.selectAll('.aux').each(function(){
+                        d3.select(this).node().volume = 0
+                    })
+                    d3.select('#' + d.season).node().volume = mapTemp(d.temperature)
+                    
                     d3.select('#bip').node().play()
 
                     
@@ -171,6 +175,9 @@
     
     d3.select('body').on('click', function(){
         d3.select('#audio1').node().play()
+        d3.selectAll('.aux').each(function(){
+            d3.select(this).node().play()
+        })
     })
 
 </script>
