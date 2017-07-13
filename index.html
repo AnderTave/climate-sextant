@@ -26,21 +26,23 @@
 
 <body>
     
+<audio id='audio1' src="assets/rain02.mp3" autoplay loop></audio> 
+    
+<!--    <audio id='audio2' src="assets/noise01.mp3" autoplay loop></audio> -->
 
+<audio class="aux" id='winter' src="assets/winter.mp3" playsinline loop></audio> 
+<audio class="aux" id='spring' src="assets/spring.mp3" playsinline loop></audio>
+<audio class="aux" id='summer' src="assets/summer.mp3" playsinline loop></audio>
+<audio class="aux" id='fall' src="assets/fall.mp3" playsinline loop></audio> 
+<audio id='bip' src="assets/bip.mp3"></audio> 
+    
+    
     <a-scene>
         
                 <a-assets>
         
         <!-- caricamento traccia audio -->
-        <audio id='audio1' src="assets/rain02.mp3" autoplay loop></audio> 
-    
-<!--    <audio id='audio2' src="assets/noise01.mp3" autoplay loop></audio> -->
-   
-        <audio class="aux" id='winter' src="assets/winter.mp3" playsinline loop></audio> 
-        <audio class="aux" id='spring' src="assets/spring.mp3" playsinline loop></audio>
-        <audio class="aux" id='summer' src="assets/summer.mp3" playsinline loop></audio>
-        <audio class="aux" id='fall' src="assets/fall.mp3" playsinline loop></audio> 
-        <audio class="aux" id='bip' src="assets/bip.mp3"></audio> 
+        
          
 		<img id="calendar" src="assets/calendar.png">	
 		<img id="top" src="assets/top.png">	
@@ -154,7 +156,7 @@
                     
                     d3.selectAll('.aux').node().pause()
                     d3.select('#' + d.season).node().play()
-                    d3.select('#' + d.season).node().volume = mapTemp(d.temperature)
+                    //d3.select('#' + d.season).node().volume = mapTemp(d.temperature)
                     d3.select('#bip').node().play()
 
                     
