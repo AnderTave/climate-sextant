@@ -21,7 +21,7 @@
 
 <body>
     <!-- caricamento traccia audio -->
-    <audio id='audio1' src="rain02.mp3" autoplay loop></audio>
+    <audio id='audio1' src="assets/rain02.mp3" autoplay loop></audio>
     
     <a-scene>
 		<a-sky color="#00f1fe">
@@ -29,7 +29,7 @@
         
 	<!--<a-plane src="Aztec_calendar.png" position="0 -1.5 0" rotation="-90 0 0" width="5" height="5" ></a-plane>	-->
 	
-	<a-cylinder  src="Aztec_calendar.png" position="0 -1.9 0" height="1" radius="3"></a-cylinder>
+	<a-cylinder  src="assets/calendar.png" position="0 -1.9 0" height="1" radius="3"></a-cylinder>
 	<a-cylinder  color="green"  position="0 -2 0" height="1" radius="18" fog="true"></a-cylinder>	
 	
 		
@@ -44,7 +44,7 @@
     
 <script>
             // caricamento database //
-            d3.csv('database.csv', data => {
+            d3.csv('database/database.csv', data => {
             // mostrare dati in console //   
             console.log(data)
             
