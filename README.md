@@ -1,6 +1,6 @@
 # Climate Sextant 🔭🌦🌫🌈
 
-*Climate Sextant* is a multi sensorial immersive VR experience to exploring air pollution in Lugano, Switzerland.
+*Climate Sextant* is a multi sensorial immersive VR experience to explore air pollution in Lugano, Switzerland.
 Born as an experiment around the possibilities of data visualization in Virtual Reality, the project propose to the user an “empty space” where data is represented only by colors and sounds.
 
 ![Game climate sextan](/screen/screen_02.png)
