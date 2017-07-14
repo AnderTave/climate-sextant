@@ -59,20 +59,18 @@
 	
 <!--        <a-cylinder  src="#calendar" position="0 -2.9 0" height="1" radius="3"></a-cylinder>-->
 		
-<!--		<a-cylinder  color="green"  position="0 -3 0" height="1" radius="18" fog="true"></a-cylinder> -->
+		<a-cylinder  color="green"  position="0 -3 0" height="1" radius="18" fog="true"></a-cylinder> 
 		
 <!--		<a-cylinder  src="#top" position="0 6 0" height="1" radius="3"></a-cylinder> -->
 		
-		
-		<a-text value="Darker is the sky, higher is concentration of PM10 in the air. Higher is the sound of the rain, more intense are the precipitations. A specific sound identify each season.
+		<a-entity position="-1.5 5.5 0"  rotation="90">
+		<a-text anchor="center" id="label" value="Darker is the sky, higher is concentration of PM10 in the air. Higher is the sound of the rain, more intense are the precipitations. A specific sound identify each season.
 
 Polluted air is not visible to the eye, 
-but we still feel it.
-					   
-Lugano 2016" position="-1.5 4 0" rotation="90"></a-text>		
-			
-			
-</a-entity>
+but we still feel it." 
+
+				></a-text>		
+		</a-entity>
 		
     <!--    <a-entity position="0 2.25 -15" particle-system="preset: rain" rotation scale visable></a-entity>  -->
         
@@ -106,9 +104,9 @@ Lugano 2016" position="-1.5 4 0" rotation="90"></a-text>
 
                 // funzione per creare piani //
                 scenes.append('a-plane')
-                    .attr('width', 8)
+                    .attr('width', 6)
                     .attr('material', "side: double")
-                    .attr('height', 8)
+                    .attr('height', 12)
                     .attr('color', '0 0 0')
                     .attr('opacity', '0')
                     .attr('position', '0 0 -20')
@@ -175,9 +173,18 @@ Lugano 2016" position="-1.5 4 0" rotation="90"></a-text>
 
                     
                 })
-
 				
-            })
+// Function for rotation text
+document.querySelector('a-camera').addEventListener('componentchanged', function (evt) { 
+	if (evt.name !== 'rotation') { 
+		console.log(evt.detail.newData.y); 
+		var rotatetext = evt.detail.newData.y; 
+		var labeltext = document.querySelector('#label'); 
+		labeltext.setAttribute('rotation', '0 0 '+rotatetext*-1)
+	}
+})
+				
+})
     
    //       <a-entity
      //   geometry="primitive: plane; width: 10000; height: 10000;" rotation="-90 0 0"
