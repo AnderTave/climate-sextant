@@ -18,6 +18,8 @@ Tutors: [Fabio Franchino](https://todo.to.it/people/fabio_franchino.html), [Gret
 
 ![Game climate sextan VR](/screen/screen_01.png)
 
+![Game climate sextan VR](/screen/screen_03.png)
+
 ## Tools & Resources 🛠
 
 [A-Frame](https://aframe.io/)
