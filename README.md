@@ -1,34 +1,37 @@
 # Climate Sextant
 
-This is a ADV17 workshop project
+*Climate Sextant* is a multi sensorial immersive VR experience to exploring air pollution in Lugano, Switzerland.
+Born as an experiment around the possibilities of data visualization in Virtual Reality, the project propose to the user an “empty space” where data is represented only by colors and sounds.
 
 ![Game climate sextan](/screen/screen_02.png)
 
 ## The Idea
 
-We would like to enable people to explore the weather and polution data through a VR experience.
-During the experience the user can view accros a period the data of:
-* PM10
-* Rain
-* Temperature
+*Climate Sextant* shows the monthly concentration of PM10 in the Lugano area, in the 2016, correlated to the precipitation level and the temperature. Darker is the sky, higher is concentration of PM10 in the air. Higher is the sound of the rain, more intense are the precipitations. A specific sound identify each season, to help the user to navigate the space.
+By exploring the immersive environment, the person is enabled to understand the direct correlation among the data.
 
-## Development
+## Credits
 
-The first attempt was creating a world in which the user by rotating can see the different slice, which represent time frame.
-Each slice show the pm10 with the dimension of an element, the temperature that modify the color of the sky and the precipitation is given by the sound.
+*Climate Sextant* is a project made by Mirko Balducci and Andrea Taverna during the workshop Adventures in Data Visualization 2017, SUPSI, Lugano, CH.
+
+Tutors: Fabio Franchino, Greta Castellana.
 
 ![Game climate sextan VR](/screen/screen_01.png)
 
-## Tools
+## Tools & Resources
 
 [A-Frame](https://aframe.io/)
 
 [D3.js](https://d3js.org)
 
-
+[Freesound.org](https://freesound.org/)
 
 ## Data
 
-Data are taken from [Oasi website](http://www.oasi.ti.ch/web/dati/)
+* PM10 montly concentration
+* Rain precipitations
+* Temperature
+
+Datasets thanks to [Oasi.ti.ch](http://www.oasi.ti.ch/web/dati/)
 
 
