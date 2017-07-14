@@ -3,7 +3,7 @@
 *Climate Sextant* is a multi sensorial immersive VR experience to explore air pollution in Lugano, Switzerland.
 Born as an experiment around the possibilities of data visualization in Virtual Reality, the project propose to the user an “empty space” where data is represented only by colors and sounds.
 
-Take your VR headset and try it at [andertave.github.io/climate-sextant](andertave.github.io/climate-sextant) ! 
+Take your VR headset and try it at [andertave.github.io/climate-sextant](https://andertave.github.io/climate-sextant/) ! 
 
 ![Game climate sextan](/screen/screen_02.png)
 
