@@ -16,7 +16,7 @@ By exploring the immersive environment, the person is enabled to understand the 
 
 *Climate Sextant* is a project made by [Mirko Balducci](www.nefula.com) and [Andrea Taverna](https://twitter.com/AnderTave) during the workshop Adventures in Data Visualization 2017, SUPSI, Lugano, CH.
 
-mbalducci [at] nefula [dot] com @mgpjm
+mbalducci [at] nefula [dot] com
 
 sig [dot] taverna [at] gmail [dot] com
 
