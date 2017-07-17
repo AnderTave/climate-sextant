@@ -9,12 +9,15 @@ Take your VR headset and try it at [andertave.github.io/climate-sextant](https:/
 
 ## The Idea 💡
 
-*Climate Sextant* shows the monthly concentration of PM10 in the Lugano area, in the 2016, correlated to the precipitation level and the temperature. Darker is the sky, higher is concentration of PM10 in the air. Higher is the sound of the rain, more intense are the precipitations. A specific sound identify each season, to help the user to navigate the space.
+*Climate Sextant* shows the monthly concentration of PM10 in the Lugano area, in the 2016, correlated to the precipitation level and the temperature. The darker the sky, the higher concentration of PM10 in the air. The higher the sound of the rain, more intense is the precipitation. A specific sound identify each season, to help the user to navigate the space.
 By exploring the immersive environment, the person is enabled to understand the direct correlation among the data.
 
 ## Credits 🏆
 
 *Climate Sextant* is a project made by [Mirko Balducci](www.nefula.com) and [Andrea Taverna](https://twitter.com/AnderTave) during the workshop Adventures in Data Visualization 2017, SUPSI, Lugano, CH.
+
+mbalducci [at] nefula [dot] com
+sig [dot] taverna [at] gmail [dot] com
 
 Tutors: [Fabio Franchino](https://todo.to.it/people/fabio_franchino.html), [Greta Castellana](http://www.greatgreta.com/).
 
@@ -33,7 +36,7 @@ Tutors: [Fabio Franchino](https://todo.to.it/people/fabio_franchino.html), [Gret
 ## Data 📈 
 
 * PM10 montly concentration
-* Rain precipitations
+* Rain precipitation
 * Temperature
 
 Datasets thanks to [Oasi.ti.ch](http://www.oasi.ti.ch/web/dati/)
